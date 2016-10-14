@@ -5,6 +5,8 @@ import com.bosch.repository.JugadorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+
 /**
  * Created by 53298857Z on 14/10/2016.
  */
@@ -15,7 +17,8 @@ public class JugadorService {
     private JugadorRepository jugadorRepository;
 
     public void testJugadores(){
-        Jugadores jug1 = new Jugadores("Jose",19-9-1991,120,30,30,"base");
+        Jugadores jug1 = new Jugadores("Jose", LocalDate.of(1992,10,02),120,30,30,"base");
+        jugadorRepository.save(jug1);
 
 
         System.out.println("Buscar jugador por nombre:" );
