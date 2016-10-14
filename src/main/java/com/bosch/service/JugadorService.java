@@ -17,10 +17,20 @@ public class JugadorService {
     private JugadorRepository jugadorRepository;
 
     public void testJugadores(){
-        Jugadores jug1 = new Jugadores("Jose", LocalDate.of(1992,10,02),120,30,30,"base");
+        Jugadores jug1 = new Jugadores("Jose-Maria", LocalDate.of(1992,10,2),120,30,30,"base");
         jugadorRepository.save(jug1);
 
+        Jugadores jug2 = new Jugadores("Antonio-Garcia", LocalDate.of(1990,5,4),300,60,60,"pivot");
+        jugadorRepository.save(jug2);
 
+        Jugadores jug3 = new Jugadores("Juan-Jesus", LocalDate.of(1987,6,6),220,50,45,"base");
+        jugadorRepository.save(jug3);
+
+        Jugadores jug4 = new Jugadores("Romeo-Gonzalez", LocalDate.of(1992,10,02),120,30,30,"base");
+        jugadorRepository.save(jug4);
+
+        Jugadores jug4 = new Jugadores("Leo-Messi", LocalDate.of(1992,10,02),120,30,30,"base");
+        jugadorRepository.save(jug4);
         System.out.println("Buscar jugador por nombre:" );
         System.out.println(jugadorRepository.);
     }
