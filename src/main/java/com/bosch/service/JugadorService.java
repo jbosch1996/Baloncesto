@@ -36,6 +36,11 @@ public class JugadorService {
         System.out.println(jugadorRepository.findBynombre("Jose"));
         System.out.println("Buscar por numero de canastas :");
         System.out.println(jugadorRepository.findBycanastasGreaterThanEqual(250));
+        System.out.println("Buscar por numero de asistencias 1 y 25 :");
+        System.out.println(jugadorRepository.findByasistenciasBetween(1,25));
+        System.out.println("Buscar jugador por posicion:" );
+        System.out.println(jugadorRepository.findByposicion("base"));
+
 
 
 

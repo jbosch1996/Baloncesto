@@ -12,6 +12,8 @@ public interface JugadorRepository extends JpaRepository<Jugadores, Long> {
 
     List<Jugadores> findBynombre(String nombre);
     List<Jugadores> findBycanastasGreaterThanEqual(Integer canastas);
+    List<Jugadores> findByasistenciasBetween(Integer min,Integer max);
+    List<Jugadores> findByposicion(String posicion);
 
 
 }

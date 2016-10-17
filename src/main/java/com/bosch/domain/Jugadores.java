@@ -17,7 +17,7 @@ public class Jugadores {
     private String apellido;
     private LocalDate nacimiento;
     private Integer canastas;
-    private Integer asitencias;
+    private Integer asistencias;
     private Integer rebotes;
     private String posicion;
 
@@ -25,12 +25,12 @@ public class Jugadores {
 
     }
 
-    public Jugadores(String nombre, String apellido, LocalDate nacimiento, Integer canastas, Integer asitencias, Integer rebotes, String posicion) {
+    public Jugadores(String nombre, String apellido, LocalDate nacimiento, Integer canastas, Integer asistencias, Integer rebotes, String posicion) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.nacimiento = nacimiento;
         this.canastas = canastas;
-        this.asitencias = asitencias;
+        this.asistencias = asistencias;
         this.rebotes = rebotes;
         this.posicion = posicion;
     }
@@ -75,12 +75,12 @@ public class Jugadores {
         this.canastas = canastas;
     }
 
-    public Integer getAsitencias() {
-        return asitencias;
+    public Integer getAsistencias() {
+        return asistencias;
     }
 
-    public void setAsitencias(Integer asitencias) {
-        this.asitencias = asitencias;
+    public void setAsistencias(Integer asistencias) {
+        this.asistencias = asistencias;
     }
 
     public Integer getRebotes() {
@@ -107,7 +107,7 @@ public class Jugadores {
                 ", apellido='" + apellido + '\'' +
                 ", nacimiento=" + nacimiento +
                 ", canastas=" + canastas +
-                ", asitencias=" + asitencias +
+                ", asistencias=" + asistencias +
                 ", rebotes=" + rebotes +
                 ", posicion='" + posicion + '\'' +
                 '}';
@@ -125,7 +125,8 @@ public class Jugadores {
         if (apellido != null ? !apellido.equals(jugadores.apellido) : jugadores.apellido != null) return false;
         if (nacimiento != null ? !nacimiento.equals(jugadores.nacimiento) : jugadores.nacimiento != null) return false;
         if (canastas != null ? !canastas.equals(jugadores.canastas) : jugadores.canastas != null) return false;
-        if (asitencias != null ? !asitencias.equals(jugadores.asitencias) : jugadores.asitencias != null) return false;
+        if (asistencias != null ? !asistencias.equals(jugadores.asistencias) : jugadores.asistencias != null)
+            return false;
         if (rebotes != null ? !rebotes.equals(jugadores.rebotes) : jugadores.rebotes != null) return false;
         return posicion != null ? posicion.equals(jugadores.posicion) : jugadores.posicion == null;
 
@@ -138,7 +139,7 @@ public class Jugadores {
         result = 31 * result + (apellido != null ? apellido.hashCode() : 0);
         result = 31 * result + (nacimiento != null ? nacimiento.hashCode() : 0);
         result = 31 * result + (canastas != null ? canastas.hashCode() : 0);
-        result = 31 * result + (asitencias != null ? asitencias.hashCode() : 0);
+        result = 31 * result + (asistencias != null ? asistencias.hashCode() : 0);
         result = 31 * result + (rebotes != null ? rebotes.hashCode() : 0);
         result = 31 * result + (posicion != null ? posicion.hashCode() : 0);
         return result;
