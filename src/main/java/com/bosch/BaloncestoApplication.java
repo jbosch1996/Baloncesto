@@ -11,8 +11,8 @@ public class BaloncestoApplication {
 	public static void main(String[] args) {
 		ConfigurableApplicationContext context = SpringApplication.run(BaloncestoApplication.class, args);
 
-		JugadorService carService = context.getBean(JugadorService.class);
+		JugadorService jugadorService = context.getBean(JugadorService.class);
 
-		carService.testJugadores();
+		jugadorService.testJugadores();
 	}
 }

@@ -14,6 +14,7 @@ public class Jugadores {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nombre;
+    private String apellido;
     private LocalDate nacimiento;
     private Integer canastas;
     private Integer asitencias;
@@ -24,8 +25,9 @@ public class Jugadores {
 
     }
 
-    public Jugadores(String nombre, LocalDate nacimiento, Integer canastas, Integer asitencias, Integer rebotes, String posicion) {
+    public Jugadores(String nombre, String apellido, LocalDate nacimiento, Integer canastas, Integer asitencias, Integer rebotes, String posicion) {
         this.nombre = nombre;
+        this.apellido = apellido;
         this.nacimiento = nacimiento;
         this.canastas = canastas;
         this.asitencias = asitencias;
@@ -49,11 +51,19 @@ public class Jugadores {
         this.nombre = nombre;
     }
 
-    public LocalDate getnacimiento() {
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public LocalDate getNacimiento() {
         return nacimiento;
     }
 
-    public void setnacimiento(LocalDate nacimiento) {
+    public void setNacimiento(LocalDate nacimiento) {
         this.nacimiento = nacimiento;
     }
 
@@ -94,7 +104,8 @@ public class Jugadores {
         return "Jugadores{" +
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
-                ", fecha_nacimiento='" + nacimiento + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", nacimiento=" + nacimiento +
                 ", canastas=" + canastas +
                 ", asitencias=" + asitencias +
                 ", rebotes=" + rebotes +
@@ -109,26 +120,27 @@ public class Jugadores {
 
         Jugadores jugadores = (Jugadores) o;
 
-        if (id != jugadores.id) return false;
-        if (!nombre.equals(jugadores.nombre)) return false;
-        if (!nacimiento.equals(jugadores.nacimiento)) return false;
-        if (!canastas.equals(jugadores.canastas)) return false;
-        if (!asitencias.equals(jugadores.asitencias)) return false;
-        if (!rebotes.equals(jugadores.rebotes)) return false;
-        return posicion.equals(jugadores.posicion);
+        if (id != null ? !id.equals(jugadores.id) : jugadores.id != null) return false;
+        if (nombre != null ? !nombre.equals(jugadores.nombre) : jugadores.nombre != null) return false;
+        if (apellido != null ? !apellido.equals(jugadores.apellido) : jugadores.apellido != null) return false;
+        if (nacimiento != null ? !nacimiento.equals(jugadores.nacimiento) : jugadores.nacimiento != null) return false;
+        if (canastas != null ? !canastas.equals(jugadores.canastas) : jugadores.canastas != null) return false;
+        if (asitencias != null ? !asitencias.equals(jugadores.asitencias) : jugadores.asitencias != null) return false;
+        if (rebotes != null ? !rebotes.equals(jugadores.rebotes) : jugadores.rebotes != null) return false;
+        return posicion != null ? posicion.equals(jugadores.posicion) : jugadores.posicion == null;
 
     }
 
     @Override
     public int hashCode() {
-        int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + nombre.hashCode();
-        result = 31 * result + nacimiento.hashCode();
-        result = 31 * result + canastas.hashCode();
-        result = 31 * result + asitencias.hashCode();
-        result = 31 * result + rebotes.hashCode();
-        result = 31 * result + posicion.hashCode();
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (nombre != null ? nombre.hashCode() : 0);
+        result = 31 * result + (apellido != null ? apellido.hashCode() : 0);
+        result = 31 * result + (nacimiento != null ? nacimiento.hashCode() : 0);
+        result = 31 * result + (canastas != null ? canastas.hashCode() : 0);
+        result = 31 * result + (asitencias != null ? asitencias.hashCode() : 0);
+        result = 31 * result + (rebotes != null ? rebotes.hashCode() : 0);
+        result = 31 * result + (posicion != null ? posicion.hashCode() : 0);
         return result;
     }
-
 }
