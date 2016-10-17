@@ -17,17 +17,17 @@ public class Equipos {
     private Long id;
     private String nombre;
     private String localidad;
-    private LocalDate fechacreacion;
+    private LocalDate creacion;
 
 
     public Equipos() {
 
     }
 
-    public Equipos(String nombre, String localidad, LocalDate fechacreacion) {
+    public Equipos(String nombre, String localidad, LocalDate creacion) {
         this.nombre = nombre;
         this.localidad = localidad;
-        this.fechacreacion = fechacreacion;
+        this.creacion = creacion;
     }
 
     public Long getId() {
@@ -54,12 +54,12 @@ public class Equipos {
         this.localidad = localidad;
     }
 
-    public LocalDate getFechacreacion() {
-        return fechacreacion;
+    public LocalDate getCreacion() {
+        return creacion;
     }
 
-    public void setFechacreacion(LocalDate fechacreacion) {
-        this.fechacreacion = fechacreacion;
+    public void setCreacion(LocalDate creacion) {
+        this.creacion = creacion;
     }
 
     @Override
@@ -68,7 +68,7 @@ public class Equipos {
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", localidad='" + localidad + '\'' +
-                ", fechacreacion=" + fechacreacion +
+                ", creacion=" + creacion +
                 '}';
     }
 
@@ -82,7 +82,7 @@ public class Equipos {
         if (id != null ? !id.equals(equipos.id) : equipos.id != null) return false;
         if (nombre != null ? !nombre.equals(equipos.nombre) : equipos.nombre != null) return false;
         if (localidad != null ? !localidad.equals(equipos.localidad) : equipos.localidad != null) return false;
-        return fechacreacion != null ? fechacreacion.equals(equipos.fechacreacion) : equipos.fechacreacion == null;
+        return creacion != null ? creacion.equals(equipos.creacion) : equipos.creacion == null;
 
     }
 
@@ -91,7 +91,7 @@ public class Equipos {
         int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (nombre != null ? nombre.hashCode() : 0);
         result = 31 * result + (localidad != null ? localidad.hashCode() : 0);
-        result = 31 * result + (fechacreacion != null ? fechacreacion.hashCode() : 0);
+        result = 31 * result + (creacion != null ? creacion.hashCode() : 0);
         return result;
     }
 }
