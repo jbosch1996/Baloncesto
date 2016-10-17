@@ -19,13 +19,13 @@ public class Jugadores {
     private Integer canastas;
     private Integer asistencias;
     private Integer rebotes;
-    private String posicion;
+    private Posicion posicion;
 
     public Jugadores(){
 
     }
 
-    public Jugadores(String nombre, String apellido, LocalDate nacimiento, Integer canastas, Integer asistencias, Integer rebotes, String posicion) {
+    public Jugadores(String nombre, String apellido, LocalDate nacimiento, Integer canastas, Integer asistencias, Integer rebotes, Posicion posicion) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.nacimiento = nacimiento;
@@ -91,11 +91,11 @@ public class Jugadores {
         this.rebotes = rebotes;
     }
 
-    public String getPosicion() {
+    public Posicion getPosicion() {
         return posicion;
     }
 
-    public void setPosicion(String posicion) {
+    public void setPosicion(Posicion posicion) {
         this.posicion = posicion;
     }
 
@@ -109,7 +109,7 @@ public class Jugadores {
                 ", canastas=" + canastas +
                 ", asistencias=" + asistencias +
                 ", rebotes=" + rebotes +
-                ", posicion='" + posicion + '\'' +
+                ", posicion=" + posicion +
                 '}';
     }
 
@@ -128,7 +128,7 @@ public class Jugadores {
         if (asistencias != null ? !asistencias.equals(jugadores.asistencias) : jugadores.asistencias != null)
             return false;
         if (rebotes != null ? !rebotes.equals(jugadores.rebotes) : jugadores.rebotes != null) return false;
-        return posicion != null ? posicion.equals(jugadores.posicion) : jugadores.posicion == null;
+        return posicion == jugadores.posicion;
 
     }
 

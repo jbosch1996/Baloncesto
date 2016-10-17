@@ -7,6 +7,9 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 
+import static com.bosch.domain.Posicion.*;
+
+
 /**
  * Created by 53298857Z on 14/10/2016.
  */
@@ -17,20 +20,24 @@ public class JugadorService {
     private JugadorRepository jugadorRepository;
 
     public void testJugadores(){
-        Jugadores jug1 = new Jugadores("Jose","Maria", LocalDate.of(1992,10,2),120,30,30,"base");
+        Jugadores jug1 = new Jugadores("Jose","Maria", LocalDate.of(1992,10,2),120,30,30,base);
         jugadorRepository.save(jug1);
 
-        Jugadores jug2 = new Jugadores("Antonio","Garcia", LocalDate.of(1990,5,4),300,60,60,"pivot");
+        Jugadores jug2 = new Jugadores("Antonio","Garcia", LocalDate.of(1990,5,4),300,60,60,pivot);
         jugadorRepository.save(jug2);
 
-        Jugadores jug3 = new Jugadores("Juan","Jesus", LocalDate.of(1987,6,6),220,50,8,"escolta");
+        Jugadores jug3 = new Jugadores("Juan","Jesus", LocalDate.of(1987,6,6),220,50,8,escolta);
         jugadorRepository.save(jug3);
 
-        Jugadores jug4 = new Jugadores("Romeo","Gonzalez", LocalDate.of(1992,10,02),400,10,9,"ala-pivot");
+        Jugadores jug4 = new Jugadores("Romeo","Gonzalez", LocalDate.of(1992,10,2),400,10,9,alapivot);
         jugadorRepository.save(jug4);
 
-        Jugadores jug5 = new Jugadores("Leo","Messi", LocalDate.of(1992,10,02),300,40,20,"alero");
+        Jugadores jug5 = new Jugadores("Leo","Messi", LocalDate.of(1992,10,02),300,40,20,alero);
         jugadorRepository.save(jug5);
+
+        Jugadores jug6 = new Jugadores("Rafa","Marquez", LocalDate.of(1994,1,6),200,50,10,pivot);
+        jugadorRepository.save(jug6);
+
 
         System.out.println("Buscar jugador por nombre:" );
         System.out.println(jugadorRepository.findBynombre("Jose"));
@@ -39,8 +46,17 @@ public class JugadorService {
         System.out.println("Buscar por numero de asistencias 1 y 25 :");
         System.out.println(jugadorRepository.findByasistenciasBetween(1,25));
         System.out.println("Buscar jugador por posicion:" );
-        System.out.println(jugadorRepository.findByposicion("base"));
+        System.out.println(jugadorRepository.findByposicion(base));
+        System.out.println("Buscar jugador por nacimiento:" );
+        System.out.println(jugadorRepository.findBynacimientoBefore(LocalDate.of(1990,10,10)));
+        System.out.println("Buscar jugador por posicion:" );
+        jugadorRepository.AvgJugadoresposicion().forEach( posicion ->
+                System.out.println("posicion =" + posicion[0] + "media canastas" + posicion[1] + "media asistencias" + posicion[2] + "media rebotes" + posicion [3]));
 
+        System.out.println("Buscar jugador por posicion(Media,Max,Min):" );
+        jugadorRepository.AvgJugadoresmaxmin().forEach( posicion ->
+                System.out.println("posicion =" + posicion[0] + "media canastas" + posicion[1] + "media asistencias" + posicion[2] + "media rebotes" + posicion [3] + "max canastas" + posicion[4]
+                + "max asistencias" + posicion[5] + "max rebotes" + posicion[6] + "min canastas" + posicion[7] + "min asistencias" + posicion[8] + "min rebotes" + posicion[9]));
 
 
 
