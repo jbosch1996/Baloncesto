@@ -26,7 +26,7 @@ public interface JugadorRepository extends JpaRepository<Jugador, Long> {
 
     @Query("SELECT jugador.posicion, AVG(jugador.canastas), AVG(jugador.asistencias), AVG(jugador.rebotes),MAX(jugador.canastas),MAX(jugador.asistencias),MAX(jugador.rebotes)" +
             ",MIN(jugador.canastas),MIN(jugador.asistencias),MIN(jugador.rebotes) " +
-            "FROM Jugador jugadores " +
+            "FROM Jugador jugador " +
             "GROUP BY jugador.posicion")
     List<Object[]> AvgJugadormaxmin();
 
