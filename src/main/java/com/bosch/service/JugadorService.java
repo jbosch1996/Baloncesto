@@ -127,7 +127,11 @@ public class JugadorService {
         jugadorRepository.save(jug24);
         jugadorRepository.save(jug25);
 
-
+        System.out.println("-----------------" );
+        System.out.println("-----------------" );
+        System.out.println("QUERYS JUGADORES:" );
+        System.out.println("-----------------" );
+        System.out.println("-----------------" );
         System.out.println("Buscar jugador por nombre:" );
         System.out.println(jugadorRepository.findBynombre("Jose"));
         System.out.println("Buscar por numero de canastas :");
@@ -146,8 +150,10 @@ public class JugadorService {
         jugadorRepository.AvgJugadormaxmin().forEach( posicion ->
                 System.out.println("posicion =" + posicion[0] + "media canastas" + posicion[1] + "media asistencias" + posicion[2] + "media rebotes" + posicion [3] + "max canastas" + posicion[4]
                 + "max asistencias" + posicion[5] + "max rebotes" + posicion[6] + "min canastas" + posicion[7] + "min asistencias" + posicion[8] + "min rebotes" + posicion[9]));
-
-
+        System.out.println("-----------------" );
+        System.out.println("-----------------" );
+        System.out.println("QUERYS EQUIPOS" );
+        System.out.println(equipoRepository.findByLocalidad("Barcelona"));
 
 
     }
