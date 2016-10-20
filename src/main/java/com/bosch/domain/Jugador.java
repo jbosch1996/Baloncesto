@@ -8,7 +8,7 @@ import java.time.LocalDate;
 
 
 @Entity
-public class Jugadores {
+public class Jugador {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,12 +20,15 @@ public class Jugadores {
     private Integer asistencias;
     private Integer rebotes;
     private Posicion posicion;
+    @ManyToOne
+    private Equipo equipo;
 
-    public Jugadores(){
+
+    public Jugador(){
 
     }
 
-    public Jugadores(String nombre, String apellido, LocalDate nacimiento, Integer canastas, Integer asistencias, Integer rebotes, Posicion posicion) {
+    public Jugador(String nombre, String apellido, LocalDate nacimiento, Integer canastas, Integer asistencias, Integer rebotes, Posicion posicion) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.nacimiento = nacimiento;
@@ -99,9 +102,17 @@ public class Jugadores {
         this.posicion = posicion;
     }
 
+    public Equipo getEquipo() {
+        return equipo;
+    }
+
+    public void setEquipo(Equipo equipo) {
+        this.equipo = equipo;
+    }
+
     @Override
     public String toString() {
-        return "Jugadores{" +
+        return "Jugador{" +
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
@@ -118,17 +129,17 @@ public class Jugadores {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Jugadores jugadores = (Jugadores) o;
+        Jugador jugador = (Jugador) o;
 
-        if (id != null ? !id.equals(jugadores.id) : jugadores.id != null) return false;
-        if (nombre != null ? !nombre.equals(jugadores.nombre) : jugadores.nombre != null) return false;
-        if (apellido != null ? !apellido.equals(jugadores.apellido) : jugadores.apellido != null) return false;
-        if (nacimiento != null ? !nacimiento.equals(jugadores.nacimiento) : jugadores.nacimiento != null) return false;
-        if (canastas != null ? !canastas.equals(jugadores.canastas) : jugadores.canastas != null) return false;
-        if (asistencias != null ? !asistencias.equals(jugadores.asistencias) : jugadores.asistencias != null)
+        if (id != null ? !id.equals(jugador.id) : jugador.id != null) return false;
+        if (nombre != null ? !nombre.equals(jugador.nombre) : jugador.nombre != null) return false;
+        if (apellido != null ? !apellido.equals(jugador.apellido) : jugador.apellido != null) return false;
+        if (nacimiento != null ? !nacimiento.equals(jugador.nacimiento) : jugador.nacimiento != null) return false;
+        if (canastas != null ? !canastas.equals(jugador.canastas) : jugador.canastas != null) return false;
+        if (asistencias != null ? !asistencias.equals(jugador.asistencias) : jugador.asistencias != null)
             return false;
-        if (rebotes != null ? !rebotes.equals(jugadores.rebotes) : jugadores.rebotes != null) return false;
-        return posicion == jugadores.posicion;
+        if (rebotes != null ? !rebotes.equals(jugador.rebotes) : jugador.rebotes != null) return false;
+        return posicion == jugador.posicion;
 
     }
 
