@@ -11,7 +11,7 @@ import java.time.LocalDate;
  * Created by 53298857Z on 17/10/2016.
  */
 @Entity
-public class Equipos {
+public class Equipo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -20,11 +20,11 @@ public class Equipos {
     private LocalDate creacion;
 
 
-    public Equipos() {
+    public Equipo() {
 
     }
 
-    public Equipos(String nombre, String localidad, LocalDate creacion) {
+    public Equipo(String nombre, String localidad, LocalDate creacion) {
         this.nombre = nombre;
         this.localidad = localidad;
         this.creacion = creacion;
@@ -64,7 +64,7 @@ public class Equipos {
 
     @Override
     public String toString() {
-        return "Equipos{" +
+        return "Equipo{" +
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", localidad='" + localidad + '\'' +
@@ -77,12 +77,12 @@ public class Equipos {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Equipos equipos = (Equipos) o;
+        Equipo equipo = (Equipo) o;
 
-        if (id != null ? !id.equals(equipos.id) : equipos.id != null) return false;
-        if (nombre != null ? !nombre.equals(equipos.nombre) : equipos.nombre != null) return false;
-        if (localidad != null ? !localidad.equals(equipos.localidad) : equipos.localidad != null) return false;
-        return creacion != null ? creacion.equals(equipos.creacion) : equipos.creacion == null;
+        if (id != null ? !id.equals(equipo.id) : equipo.id != null) return false;
+        if (nombre != null ? !nombre.equals(equipo.nombre) : equipo.nombre != null) return false;
+        if (localidad != null ? !localidad.equals(equipo.localidad) : equipo.localidad != null) return false;
+        return creacion != null ? creacion.equals(equipo.creacion) : equipo.creacion == null;
 
     }
 
