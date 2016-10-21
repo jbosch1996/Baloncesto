@@ -1,5 +1,6 @@
 package com.bosch.repository;
 
+import com.bosch.domain.Equipo;
 import com.bosch.domain.Jugador;
 import com.bosch.domain.Posicion;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -18,6 +19,8 @@ public interface JugadorRepository extends JpaRepository<Jugador, Long> {
     List<Jugador> findByasistenciasBetween(Integer min, Integer max);
     List<Jugador> findByposicion(Posicion posicion);
     List<Jugador> findBynacimientoBefore(LocalDate nacimiento);
+    List<Jugador>findByEquipoNombre(String nombre);
+
 
     @Query("SELECT jugador.posicion, AVG(jugador.canastas), AVG(jugador.asistencias), AVG(jugador.rebotes) " +
             "FROM Jugador jugador " +

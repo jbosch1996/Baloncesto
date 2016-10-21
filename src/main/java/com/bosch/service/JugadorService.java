@@ -154,6 +154,7 @@ public class JugadorService {
         System.out.println("-----------------" );
         System.out.println("QUERYS EQUIPOS" );
         System.out.println(equipoRepository.findByLocalidad("Barcelona"));
+        System.out.println(jugadorRepository.findByEquipoNombre("FCBarcelona"));
 
 
     }
