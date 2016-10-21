@@ -153,8 +153,19 @@ public class JugadorService {
         System.out.println("-----------------" );
         System.out.println("-----------------" );
         System.out.println("QUERYS EQUIPOS" );
+        System.out.println("Buscar Equipo por Localidad");
         System.out.println(equipoRepository.findByLocalidad("Barcelona"));
+        System.out.println("-----------------" );
+        System.out.println("-----------------" );
+        System.out.println("Buscar equipo por nombre");
         System.out.println(jugadorRepository.findByEquipoNombre("FCBarcelona"));
+        System.out.println("-----------------" );
+        System.out.println("-----------------" );
+        System.out.println("Buscar equipo por posicion");
+        System.out.println(jugadorRepository.findByEquipoNombreAndPosicion("FCBarcelona",alero));
+        System.out.println("-----------------" );
+        System.out.println("-----------------" );
+        System.out.println("Buscar jugador con mas canastas de un equipo");
 
 
     }
