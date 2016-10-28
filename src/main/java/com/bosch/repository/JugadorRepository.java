@@ -22,6 +22,7 @@ public interface JugadorRepository extends JpaRepository<Jugador, Long> {
     List<Jugador> findBynacimientoBefore(LocalDate nacimiento);
     List<Jugador>findByEquipoNombre(String nombre);
     List<Jugador>findByEquipoNombreAndPosicion(String nombre,Posicion posicion);
+    List<Jugador>findByCanastasGreaterThan(Integer canastas);
 
 
 
