@@ -24,7 +24,10 @@ public class JugadorController {
     public Jugador createJugador(@RequestBody Jugador jugador){
         return jugadorRepository.save(jugador);
     }
-
+    @RequestMapping(method = RequestMethod.PUT)
+    public Jugador updateJugador(@RequestBody Jugador jugador) {
+        return jugadorRepository.save(jugador);
+    }
     @RequestMapping(method= RequestMethod.GET)
     public List<Jugador> findAll() {
         return jugadorRepository.findAll();
@@ -35,6 +38,10 @@ public class JugadorController {
     public Jugador findById(@PathVariable Long id){
         Jugador jugador =  jugadorRepository.findOne(id);
         return jugador;
+    }
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public void deletePlayer(@PathVariable Long id) {
+        jugadorRepository.delete(id);
     }
 
     @RequestMapping(value = "/byCanastas/{canastas}",
