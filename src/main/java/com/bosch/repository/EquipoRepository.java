@@ -3,6 +3,7 @@ package com.bosch.repository;
 import com.bosch.domain.Equipo;
 import com.bosch.domain.Jugador;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
@@ -12,6 +13,9 @@ import java.util.List;
 public interface EquipoRepository extends JpaRepository <Equipo, Long> {
 
     List<Equipo> findByLocalidad(String localidad);
+
+    @Query("select e from Equipo e order by e.localidad")
+    List<Equipo> equipoByLocalidad();
 
 
 
