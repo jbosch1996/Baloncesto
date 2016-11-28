@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Created by 53298857Z on 24/10/2016.
@@ -67,7 +68,7 @@ public class JugadorController {
 
         for(Jugador p: jugador){
             jugadorMultiMap.put(p.getPosicion(), p);
-        }+
+        }
 
         return jugadorMultiMap.asMap();
     }
@@ -94,5 +95,11 @@ public class JugadorController {
         return estadisticasPosicionMap;
     }
 
-
+        @GetMapping("/posicionAndmap")
+     public Map<Posicion, List<Jugador>> getJugadoresGroupByPosicion(){
+                return jugadorRepository
+                               .findAll()
+                               .parallelStream()
+                                .collect(Collectors.groupingBy(Jugador::getPosicion));
+           }
 }
