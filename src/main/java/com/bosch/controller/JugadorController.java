@@ -2,13 +2,17 @@ package com.bosch.controller;
 
 import com.bosch.domain.Jugador;
 import com.bosch.domain.Posicion;
+import com.bosch.controller.util.HeaderUtil;
 import com.bosch.repository.JugadorRepository;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.ListMultimap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -25,6 +29,19 @@ public class JugadorController {
     @ResponseStatus(HttpStatus.CREATED)
     public Jugador createJugador(@RequestBody Jugador jugador){
         return jugadorRepository.save(jugador);
+    }
+       public ResponseEntity<Jugador> createPlayer(@RequestBody Jugador jugador) throws URISyntaxException {
+                if (jugador.getId() != null) {
+                       return ResponseEntity.
+                                       badRequest().
+                                      headers(
+                                                HeaderUtil.
+                                                                createFailureAlert("player", "idexists", "A new player cannot already have an ID")).body(null);
+                   }
+                Jugador result = jugadorRepository.save(jugador);
+                return ResponseEntity.created(new URI("/players/" + result.getId()))
+                                .headers(HeaderUtil.createEntityCreationAlert("player", result.getId().toString()))
+                                .body(result);
     }
     @RequestMapping(method = RequestMethod.PUT)
     public Jugador updateJugador(@RequestBody Jugador jugador) {
